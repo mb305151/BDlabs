@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista użytkowników</title>
+</head>
+<body>
+    <h1>Lista użytkowników</h1>
+    <ul>
+        {% for uzytkownik in uzytkownicy %}
+            <li>{{ uzytkownik.imie }} {{ uzytkownik.nazwisko }} - {{ uzytkownik.email }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/dodaj/">Dodaj nowego użytkownika</a>  <!-- Link do formularza -->
+</body>
+</html>

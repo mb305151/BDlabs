@@ -1,0 +1,48 @@
+{% include 'pracownik/navigation.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Przegląd zgłoszeń i dni urlopowych</title>
+</head>
+<body>
+    <h1>Przegląd zgłoszeń i dni urlopowych</h1>
+
+    <h2>Dane użytkownika</h2>
+    {% if uzytkownik %}
+        <p><strong>Imię i nazwisko:</strong> {{ uzytkownik.imie }} {{ uzytkownik.nazwisko }}</p>
+        <p><strong>Email:</strong> {{ uzytkownik.email }}</p>
+        <p><strong>Dostępne dni urlopu:</strong> {{ uzytkownik.ilosc_dni_urlopowych }}</p>
+        <p><strong>Zaległy urlop:</strong> {{ uzytkownik.zalegly_urlop }}</p>
+    {% else %}
+        <p>Nie znaleziono danych użytkownika.</p>
+    {% endif %}
+
+    <h2>Twoje zgłoszenia</h2>
+    {% if zgloszenia %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Data początkowa</th>
+                    <th>Data końcowa</th>
+                    <th>Status</th>
+                    <th>Data założenia</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for zgloszenie in zgloszenia %}
+                    <tr>
+                        <td>{{ zgloszenie.data_poczatkowa }}</td>
+                        <td>{{ zgloszenie.data_koncowa }}</td>
+                        <td>{{ zgloszenie.status }}</td>
+                        <td>{{ zgloszenie.data_zalozenia }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Brak zgłoszeń w systemie.</p>
+    {% endif %}
+</body>
+</html>

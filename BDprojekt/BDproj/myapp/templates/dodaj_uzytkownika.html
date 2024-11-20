@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj użytkownika</title>
+</head>
+<body>
+    <h1>Dodaj użytkownika</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Dodaj</button>
+    </form>
+    <a href="/">Wróć do listy użytkowników</a>
+</body>
+</html>

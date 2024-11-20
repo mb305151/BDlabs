@@ -1,0 +1,17 @@
+{% include 'pracownik/navigation.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wniosek o urlop</title>
+</head>
+<body>
+    <h1>Wniosek o urlop</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Prześlij wniosek</button>
+    </form>
+</body>
+</html>

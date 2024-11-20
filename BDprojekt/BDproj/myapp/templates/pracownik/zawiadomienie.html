@@ -1,0 +1,18 @@
+{% include 'pracownik/navigation.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zawiadomienie o L4/UŻ</title>
+</head>
+<body>
+    <h1>Zawiadomienie o L4/UŻ</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Prześlij zawiadomienie</button>
+    </form>
+    <a href="/pracownik/">Wróć do panelu pracownika</a>
+</body>
+</html>

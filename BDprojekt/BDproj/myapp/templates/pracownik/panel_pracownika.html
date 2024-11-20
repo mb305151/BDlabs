@@ -1,0 +1,23 @@
+{% include 'pracownik/navigation.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel pracownika</title>
+</head>
+<body>
+    <h1>Panel pracownika</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'ewidencja' %}">Ewidencja godzin pracy</a></li>
+			<li><a href="{% url 'wniosek_urlop' %}">Wyślij wniosek o urlop</a></li>
+            <li><a href="{% url 'zawiadomienie' %}">Zawiadomienie o L4/UŻ</a></li>
+            <li><a href="{% url 'przeglad' %}">Przegląd urlopów</a></li>
+        </ul>
+    </nav>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

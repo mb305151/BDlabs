@@ -1,0 +1,41 @@
+{% include 'pracownik/navigation.html' %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ewidencja czasu pracy</title>
+</head>
+<body>
+    <h1>Ewidencja czasu pracy - Widok miesięczny</h1>
+
+    <h2>Dodaj wpis</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Dodaj wpis</button>
+    </form>
+
+    <h2>Twoje wpisy w bieżącym miesiącu</h2>
+    {% if wpisy %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Godziny pracy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for wpis in wpisy %}
+                    <tr>
+                        <td>{{ wpis.data }}</td>
+                        <td>{{ wpis.godziny_pracy }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Brak wpisów w bieżącym miesiącu.</p>
+    {% endif %}
+</body>
+</html>
